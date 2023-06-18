@@ -16,6 +16,7 @@
           href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=serviciosmandor@gmail.com"
           rel="noreferrer"
           target="_blank"
+          title="Send an email"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +29,11 @@
             />
           </svg>
         </a>
-        <a href="https://www.instagram.com/mandormachupicchu/" target="_blank">
+        <a
+          href="https://www.instagram.com/mandormachupicchu/"
+          target="_blank"
+          title="See our instagram"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="1em"
@@ -40,10 +45,7 @@
           </svg>
         </a>
 
-        <a
-          href="https://api.whatsapp.com/send?phone=51940188155&text=Hi%20we%20need%20help%20regarding%20something"
-          target="_blank"
-        >
+        <a target="_blank" title="Send a message on whatsapp" id="whatsapp">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="1em"
@@ -55,7 +57,11 @@
             />
           </svg>
         </a>
-        <a href="https://www.facebook.com/mandormachupicchu" target="_blank">
+        <a
+          href="https://www.facebook.com/mandormachupicchu"
+          target="_blank"
+          title="See us on facebook"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="1em"
@@ -67,8 +73,25 @@
             />
           </svg>
         </a>
+        <a
+          href="https://www.booking.com/hotel/pe/gea-lodge.html"
+          target="_blank"
+          title="Book a room on booking"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 640 512"
+          >
+            <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path
+              d="M32 32c17.7 0 32 14.3 32 32V320H288V160c0-17.7 14.3-32 32-32H544c53 0 96 43 96 96V448c0 17.7-14.3 32-32 32s-32-14.3-32-32V416H352 320 64v32c0 17.7-14.3 32-32 32s-32-14.3-32-32V64C0 46.3 14.3 32 32 32zm144 96a80 80 0 1 1 0 160 80 80 0 1 1 0-160z"
+            />
+          </svg>
+        </a>
       </div>
     </div>
+    <p id="browser"></p>
   </body>
   <style>
     * {
@@ -81,13 +104,14 @@
     }
 
     svg {
-      font-size: 3em;
+      font-size: 2em;
+      padding: 0.5em;
       fill: white;
       filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
     }
 
     img {
-      width: 50vw;
+      width: 350px;
       height: auto;
       margin: 1em 2em;
     }
@@ -114,11 +138,28 @@
     }
 
     .links {
-      width: 50vw;
+      width: 350px;
       display: flex;
       justify-content: space-around;
       align-items: center;
       list-style: none;
     }
   </style>
+  <script>
+    const target = document.getElementById("whatsapp");
+    const browser = navigator.userAgent;
+    const regexp = /android|iphone|kindle|ipad/i;
+    const isMobileDevice = regexp.test(browser);
+    if (isMobileDevice) {
+      target.setAttribute(
+        "href",
+        "https://wa.me/51940188155/?text=Hi%20we%20need%20to%20book%20a%20room%20from%20__%20to%20__"
+      );
+    } else {
+      target.setAttribute(
+        "href",
+        "https://web.whatsapp.com/send?phone=51940188155&amp;text=Hi%20we%20need%20to%20book%20a%20room%20from%20__%20to%20__"
+      );
+    }
+  </script>
 </html>
